@@ -1,0 +1,60 @@
+#define left 5
+#define right 6
+
+
+
+
+void setup()
+{
+
+	Serial.begin(9600);
+	pinMode(left, OUTPUT);
+	pinMode(right, OUTPUT);
+
+
+}
+
+void Run()
+{
+	analogWrite(left, 180);
+	analogWrite(right, 180);
+
+}
+void Stop()
+{
+	digitalWrite(left, LOW);
+	digitalWrite(right, LOW);
+
+}
+void Left()
+{
+	analogWrite(left, 0);
+	analogWrite(right, 180);
+
+}
+void Right()
+{
+	analogWrite(left, 190);
+	analogWrite(right, 0);
+
+}
+
+void loop()
+{
+	float readleft = 0;
+	float readright = 0;
+	readleft = 5 * (float)analogRead(A3) / 1024;
+	readright = 5 * (float)analogRead(A2) / 1024;
+	if (readleft>180)
+	{
+		Left();
+	}
+
+	if (rightleft>180)
+	{
+		Right();
+	}
+	delay(10);
+
+
+}
